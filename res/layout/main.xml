@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout
+	android:id="@+id/widget40"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+        android:background="@drawable/farm"
+>
+<Spinner
+	android:id="@+id/categories_spinner"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:layout_x="10dp"
+	android:layout_y="80dp"
+        android:gravity="left" 
+        />
+<Spinner
+	android:id="@+id/location_spinner"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:layout_x="10dp"
+	android:layout_y="200dp" 
+        android:gravity="left" 
+        />
+<Spinner
+	android:id="@+id/sort_spinner"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:layout_x="10dp"
+	android:layout_y="260dp" 
+        android:gravity="left" 
+        />
+<ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="150dp"
+        android:layout_height="70dp"
+        android:src="@drawable/logo"
+        android:layout_x="12dp"
+	android:layout_y="0dp" />
+<Button
+	android:id="@+id/search_button"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="Αναζήτηση"
+	android:layout_x="110dp"
+	android:layout_y="400dp" 
+/>
+<EditText
+	android:id="@+id/widget36"
+	android:layout_width="279dp"
+	android:layout_height="wrap_content"
+        android:hint="π.χ Πατάτες Bροντού"
+	android:textSize="18sp"
+	android:layout_x="10dp"
+	android:layout_y="140dp" />
+
+<TextView
+	android:id="@+id/widget50"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="Κατηγορία προιόντος"
+	android:textSize="16sp"
+        android:textColor="#000000"
+	android:textStyle="italic"
+	android:layout_x="12dp"
+	android:layout_y="60dp" />
+<TextView
+	android:id="@+id/widget51"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="Προιόν"
+	android:textSize="16sp"
+        android:textColor="#000000"
+	android:textStyle="italic"
+	android:layout_x="12dp"
+	android:layout_y="120dp" />
+<TextView
+	android:id="@+id/widget52"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="Νομός"
+        android:textColor="#000000"
+	android:textSize="16sp"
+	android:textStyle="italic"
+	android:layout_x="12dp"
+	android:layout_y="180dp" />
+<TextView
+	android:id="@+id/widget53"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="Ταξινόμηση"
+        android:textColor="#ffffff"
+	android:textSize="16sp"
+	android:textStyle="italic"
+	android:layout_x="12dp"
+	android:layout_y="240dp" />
+<AnalogClock
+	android:id="@+id/widget39"
+	android:layout_width="86dp"
+	android:layout_height="83dp"
+	android:layout_x="236dp"
+	android:layout_y="0dp" />
+
+</AbsoluteLayout>

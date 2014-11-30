@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FarmDeals</string>
+    <string-array name="categories_array">
+        <item>Πατάτες</item>
+        <item>Πορτοκάλια</item>
+        <item>Λεμόνια</item>
+        <item>Μήλα</item>
+        <item>Αχλάδια</item>
+        <item>Αγγούρια</item>
+        <item>Ντομάτες</item>
+    </string-array>
+    <string-array name="location_array">
+        <item>Θεσσαλονίκης</item>
+        <item>Σερρών</item>
+        <item>Καβάλας</item>
+        <item>Δράμας</item>
+        <item>Πέλλας</item>
+        <item>Λαρίσης</item>
+        <item>Καρδίτσης</item>
+    </string-array>
+    <string-array name="sort_array">
+        <item>Αύξουσα Τιμή</item>
+        <item>Φθίνουσα Τιμή</item>
+        <item>Αύξουσα Ποσότητα</item>
+        <item>Φθίνουσα Ποσότητα</item>
+    </string-array>
+</resources>
