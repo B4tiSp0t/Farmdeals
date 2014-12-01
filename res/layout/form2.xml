@@ -1,4 +1,4 @@
-
+<?xml version="1.0" encoding="utf-8"?>
 <AbsoluteLayout
 android:id="@+id/widget0"
 android:layout_width="fill_parent"
