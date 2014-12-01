@@ -19,6 +19,7 @@ public class Dao {
 	private String password;
 	private String username;
 	private String dbName;
+       
 
 	private Dao() {
             
@@ -80,15 +81,6 @@ public class Dao {
 		return singletonObj;
 
 	}
-
-	/**
-	 * Should be called before calling Dao operations like addUser()
-	 * 
-	 * @param serverAddress
-	 * @param password
-	 * @param username
-	 * @param dbName
-	 */
 
 	public void connect(String serverAddress, String password, String username,
 			String dbName) {
@@ -177,7 +169,7 @@ public class Dao {
 		}
 
 	}
-        public String[][] searchCategories()
+        public String[][] getProducts()
         {
             if (conn == null) {
 
@@ -189,18 +181,24 @@ public class Dao {
 		try {
 
 			Statement statement = conn.createStatement();
-			ResultSet rs = statement.executeQuery("SELECT [Account_ID]\n"
-                                    + "      ,[Email]\n"
-                                    + "      ,[Password]\n"
-                                    + "  FROM [dbo].[Accounts]\n"
+			ResultSet rs = statement.executeQuery("SELECT [Product_Name]\n"
+                                    + "      ,[Product_Description]\n"
+                                    + "      ,[Measurement_ID]\n"
+                                    + "      ,[Product_Price]\n"
+                                    + "      ,[Category_ID]\n"
+                                    + "      ,[Location_ID]\n"
+                                    + "  FROM [dbo].[Products]\n"
                                     + "GO");
                          
-                        String[][] resultArray = new String[4][3];
+                        String[][] resultArray = new String[15][6];
                         rs.next();
-                        for (int i = 0; i < 4; i++) {
-                            resultArray[i][0] = rs.getString("Account_ID");
-                            resultArray[i][1] = rs.getString("Email");
-                            resultArray[i][2] = rs.getString("Password");
+                        for (int i = 0; i < 15; i++) {
+                            resultArray[i][0] = rs.getString("Product_Name");
+                            resultArray[i][1] = rs.getString("Product_Description");
+                            resultArray[i][2] = rs.getString("Measurement_ID");
+                            resultArray[i][3] = rs.getString("Product_Price");
+                            resultArray[i][4] = rs.getString("Category_ID");
+                            resultArray[i][5] = rs.getString("Location_ID");
                             rs.next();
                         }
 
@@ -208,6 +206,68 @@ public class Dao {
 			rs.close();
 			statement.close();
 
+                         return resultArray;
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+
+		}
+        return null;    
+        }
+         public String[] getCategories()
+        {
+            if (conn == null) {
+
+			throw new InstantiationError(
+					"call Dao.connect(...) before calling Dao operations");
+
+		}
+
+		try {
+			Statement statement = conn.createStatement();
+			ResultSet rs = statement.executeQuery("SELECT [Category_Name]\n"
+                                    + "  FROM [dbo].[Categories]\n"
+                                    + "GO");
+                         
+                        String[] resultArray = new String[5];
+                        rs.next();
+                        for (int i = 0; i < 5; i++) {
+                            resultArray[i] = rs.getString("Category_Name");
+                            rs.next();
+                        }
+			rs.close();
+			statement.close();
+                         return resultArray;
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+
+		}
+        return null;    
+        }
+        public String[] getLocation()
+        {
+            if (conn == null) {
+
+			throw new InstantiationError(
+					"call Dao.connect(...) before calling Dao operations");
+
+		}
+
+		try {
+			Statement statement = conn.createStatement();
+			ResultSet rs = statement.executeQuery("SELECT [City]\n"
+                                    + "  FROM [dbo].[Location]\n"
+                                    + "GO");
+                         
+                        String[] resultArray = new String[15];
+                        rs.next();
+                        for (int i = 0; i < 15; i++) {
+                            resultArray[i] = rs.getString("City");
+                            rs.next();
+                        }
+			rs.close();
+			statement.close();
                          return resultArray;
 		} catch (SQLException e) {
 
