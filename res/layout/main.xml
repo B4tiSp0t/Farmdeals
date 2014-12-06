@@ -42,8 +42,8 @@
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
 	android:text="Αναζήτηση"
-	android:layout_x="110dp"
-	android:layout_y="400dp" 
+	android:layout_x="33dp"
+	android:layout_y="334dp" 
 />
 <EditText
 	android:id="@+id/widget36"
@@ -100,5 +100,11 @@
 	android:layout_height="83dp"
 	android:layout_x="236dp"
 	android:layout_y="0dp" />
-
+<Button
+	android:id="@+id/loginScreen"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="ΣΥΝΔΕΣΗ/ΕΓΓΡΑΦΗ"
+	android:layout_x="173dp"
+	android:layout_y="378dp" />
 </AbsoluteLayout>
