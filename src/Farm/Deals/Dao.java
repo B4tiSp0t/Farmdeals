@@ -341,3 +341,35 @@ public class Dao {
         }
         
 }
+ public String [] getprotuctDetailsActivity()
+        {
+            if (conn == null) {
+
+			throw new InstantiationError(
+					"call Dao.connect(...) before calling Dao operations");
+
+		}
+            try {
+			Statement statement = conn.createStatement();
+			ResultSet rs = statement.executeQuery("SELECT [protuct_Name]\n"
+                                    + "  FROM [dbo].[Protuct]\n"
+                                    + "ΕΠΟΜΕΝΟ");
+                         
+                        String[] resultArray = new String[15];
+                        rs.next();
+                        for (int i = 0; i < 15; i++) {
+                            resultArray[i] = rs.getString("protuct_Name");
+                            rs.next();
+                        }
+			rs.close();
+			statement.close();
+                         return resultArray;
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+
+		}
+        return null;    
+        }
+      
+}
