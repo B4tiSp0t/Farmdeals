@@ -46,10 +46,10 @@
 	android:layout_y="334dp" 
 />
 <EditText
-	android:id="@+id/widget36"
+	android:id="@+id/productNameField"
 	android:layout_width="279dp"
 	android:layout_height="wrap_content"
-        android:hint="π.χ Πατάτες Bροντού"
+        android:hint="π.χ ΠΑΤΑΤΕΣ"
 	android:textSize="18sp"
 	android:layout_x="10dp"
 	android:layout_y="140dp" />

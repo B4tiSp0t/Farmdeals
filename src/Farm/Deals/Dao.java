@@ -169,7 +169,7 @@ public class Dao {
 		}
 
 	}
-        public String[][] getProducts()
+        public String[][] searchProducts(int categoryID, String productName, int countyID)
         {
             if (conn == null) {
 
@@ -179,26 +179,87 @@ public class Dao {
 		}
 
 		try {
-
+                        String query = "SELECT COUNT ([Product_ID]) AS 'ROWCOUNT'\n"
+                            + "FROM [Products]\n"
+                            + "JOIN [Regions]\n"
+                            + "ON Regions.Region_ID=Products.Region_ID\n"
+                            + "JOIN [Counties]\n"
+                            + "ON Counties.County_ID=Regions.County_ID ";
+                        String queryAdditions = "";
+                        if(categoryID != 0 || !"".equals(productName) || countyID !=0)
+                        {
+                            queryAdditions += " WHERE";
+                            
+                            if (categoryID == 0) {
+                                queryAdditions += " [Products].[Category_ID] > 0";
+                            } else {
+                                queryAdditions += " [Products].[Category_ID] = "+categoryID;
+                            }
+                            
+                            if(productName.equals(""))
+                            {
+                                queryAdditions += " AND [Products].[Product_Name] != ''";
+                            }else
+                            {
+                                queryAdditions += " AND [Products].[Product_Name] LIKE '%"+productName;
+                                queryAdditions += "%'";
+                            }
+                            if(countyID == 0)
+                            {
+                                queryAdditions += " AND [Counties].[County_ID] > 0";
+                            }else
+                            {
+                                queryAdditions += " AND [Counties].[County_ID] = "+countyID;
+                            }
+                        }
+                        
+                       
+                
 			Statement statement = conn.createStatement();
-			ResultSet rs = statement.executeQuery("SELECT [Product_Name]\n"
-                                    + "      ,[Product_Description]\n"
-                                    + "      ,[Measurement_ID]\n"
-                                    + "      ,[Product_Price]\n"
-                                    + "      ,[Category_ID]\n"
-                                    + "      ,[Location_ID]\n"
-                                    + "  FROM [dbo].[Products]\n"
-                                    + "GO");
+                        ResultSet resultSetForCountingProducts = statement.executeQuery(query+queryAdditions);
+                                
+                        
+                        
+                        
+                        resultSetForCountingProducts.next();
+                        int numberOfProducts = resultSetForCountingProducts.getInt("rowcount");
+
+                        resultSetForCountingProducts.close();
+                        
+                        
+                        String resultsQuery = "SELECT Products.[Product_Name]\n"
+                            + "      ,Products.[Product_Description]\n"
+                            + "      ,Products.[Product_Price]   \n"
+                            + "      ,Products.[Address]\n"
+                            + "      ,Products.[Number]\n"
+                            + "      ,Products.[Zip_Code]\n"
+                            + "	  ,Products.Quantity\n"
+                            + "	  ,Counties.County_Name\n"
+                            + "	  ,Measurements.Measurement_Type\n"
+                            + "	  ,Regions.Region_Name\n"
+                            + "FROM [Products]\n"
+                            + "JOIN [Regions]\n"
+                            + "ON Regions.Region_ID=Products.Region_ID\n"
+                            + "JOIN [Counties]\n"
+                            + "ON Counties.County_ID=Regions.County_ID\n"
+                            + "JOIN [Measurements]\n"
+                            + "ON Measurements.Measurement_ID=Products.Measurement_ID";
+                        
+			ResultSet rs = statement.executeQuery(resultsQuery + queryAdditions);
                          
-                        String[][] resultArray = new String[15][6];
+                        String[][] resultArray = new String[numberOfProducts][10];
                         rs.next();
-                        for (int i = 0; i < 15; i++) {
+                        for (int i = 0; i < numberOfProducts; i++) {
                             resultArray[i][0] = rs.getString("Product_Name");
                             resultArray[i][1] = rs.getString("Product_Description");
-                            resultArray[i][2] = rs.getString("Measurement_ID");
-                            resultArray[i][3] = rs.getString("Product_Price");
-                            resultArray[i][4] = rs.getString("Category_ID");
-                            resultArray[i][5] = rs.getString("Location_ID");
+                            resultArray[i][2] = rs.getString("Address");
+                            resultArray[i][3] = Integer.toString(rs.getInt("Product_Price"));
+                            resultArray[i][4] = Integer.toString(rs.getInt("Number"));
+                            resultArray[i][5] = Integer.toString(rs.getInt("Zip_Code"));
+                            resultArray[i][6] = Integer.toString(rs.getInt("Quantity"));
+                            resultArray[i][7] = rs.getString("County_Name");
+                            resultArray[i][8] = rs.getString("Measurement_Type");
+                            resultArray[i][9] = rs.getString("Region_Name");
                             rs.next();
                         }
 
@@ -229,9 +290,10 @@ public class Dao {
                                     + "  FROM [dbo].[Categories]\n"
                                     + "GO");
                          
-                        String[] resultArray = new String[5];
+                        String[] resultArray = new String[6];
+                        resultArray[0] = "----Επιλέξτε κατηγορία----";
                         rs.next();
-                        for (int i = 0; i < 5; i++) {
+                        for (int i = 1; i < 6; i++) {
                             resultArray[i] = rs.getString("Category_Name");
                             rs.next();
                         }
@@ -260,9 +322,10 @@ public class Dao {
                                     + "  FROM [dbo].[Counties]\n"
                                     + "GO");
                          
-                        String[] resultArray = new String[15];
+                        String[] resultArray = new String[52];
+                        resultArray[0] = "----Επιλέξτε Νομό----";
                         rs.next();
-                        for (int i = 0; i < 15; i++) {
+                        for (int i = 1; i < 52; i++) {
                             resultArray[i] = rs.getString("County_Name");
                             rs.next();
                         }
@@ -276,4 +339,5 @@ public class Dao {
 		}
         return null;    
         }
+        
 }

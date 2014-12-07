@@ -12,6 +12,9 @@
             </intent-filter>
         </activity>
         <activity android:label="ΣΥΝΔΕΣΗ" android:name="LoginScreen"> </activity>
+        <activity android:label="Επεξεργασία Προϊόντος" android:name="EditProductActivity"> </activity>
+        <activity android:label="Προϊόντα" android:name="FarmerProductsActivity"> </activity>
+        <activity android:label="Αποτελέσματα αναζήτησης" android:name="SearchResultsActivity"> </activity>
     </application>
     <uses-permission android:name="android.permission.INTERNET" />
 </manifest>

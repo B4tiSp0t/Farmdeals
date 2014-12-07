@@ -1,5 +1,6 @@
 package Farm.Deals;
 
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,8 +8,10 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class Main extends Activity implements DBConnectionListener, OnClickListener
 {
@@ -89,8 +92,7 @@ public class Main extends Activity implements DBConnectionListener, OnClickListe
  
         String categories[] = dao.getCategories();
         String location[] = dao.getLocation();
-        String products[][] = dao.getProducts();
-        
+                
         categories_spinner = (Spinner) findViewById(R.id.categories_spinner);
         ArrayAdapter<String> categories_adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, categories);
         categories_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -115,7 +117,7 @@ public class Main extends Activity implements DBConnectionListener, OnClickListe
         Button button = (Button) findViewById(R.id.search_button);
         button.setOnClickListener(this);
         
-         View btnClick = findViewById(R.id.loginScreen);
+        Button btnClick = (Button)findViewById(R.id.loginScreen);
 	//set event listener
         btnClick.setOnClickListener(this);
         
@@ -124,13 +126,20 @@ public class Main extends Activity implements DBConnectionListener, OnClickListe
     }
 
      public void onClick(View arg0) {
-       //String[][] result = dao.getProducts();
-         //if(arg0.getId() == R.id.search_button){
-		//define a new Intent for the second Activity
-		//Intent intent = new Intent(this,search_othonh.class);
- 
-		//start the second Activity
-		//this.startActivity(intent);
+         if(arg0.getId() == R.id.search_button){
+             int categoryID = categories_spinner.getSelectedItemPosition();
+             int locationID = location_spinner.getSelectedItemPosition();
+             EditText productNameField = (EditText)findViewById(R.id.productNameField);
+             String productName = productNameField.getText().toString();
+             String[][] result = dao.searchProducts(categoryID, productName, locationID);
+             
+             Intent intent = new Intent(this,SearchResultsActivity.class);
+             Bundle bundle = new Bundle();
+             bundle.putSerializable("results", result);
+             intent.putExtras(bundle);
+             this.startActivity(intent);
+             //newIntent.putExtra("name",value);
+         }
 	
          if(arg0.getId() == R.id.loginScreen){
 		//define a new Intent for the second Activity
