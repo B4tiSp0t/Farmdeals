@@ -341,3 +341,36 @@ public class Dao {
         }
         
 }
+       public String[] getInsert_Product()
+
+        {
+            if (conn == null) {
+
+			throw new InstantiationError(
+					"call Dao.connect(...) before calling Dao operations");
+
+		}
+
+		try {
+			Statement statement = conn.createStatement();
+			ResultSet rs = statement.executeQuery("SELECT [Product_Name]\n"
+                                    + "  FROM [dbo].[Product]\n"
+                                    + "Επόμενο");
+                         
+                        String[] resultArray = new String[15];
+                        rs.next();
+                        for (int i = 0; i < 15; i++) {
+                            resultArray[i] = rs.getString("Product_Name");
+                            rs.next();
+                        }
+			rs.close();
+			statement.close();
+                         return resultArray;
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+
+		}
+        return null;    
+        }
+
