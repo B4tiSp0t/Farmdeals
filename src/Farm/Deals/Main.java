@@ -1,6 +1,7 @@
 package Farm.Deals;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -22,6 +23,14 @@ public class Main extends Activity implements DBConnectionListener, OnClickListe
         dao = Dao.instance(this);
         dao.connect("b4tisp0t.ddns.net:1433", "projectpass", "projectuser", "projectdb;");
        
+        setContentView(R.layout.main);
+ 
+	//get the Button reference
+	//Button is a subclass of View
+	//buttonClick is defined in main.xml "@+id/buttonClick"
+        View btnClick = findViewById(R.id.loginScreen);
+	//set event listener
+        btnClick.setOnClickListener(this);
     }
 
     @Override
@@ -106,13 +115,30 @@ public class Main extends Activity implements DBConnectionListener, OnClickListe
         Button button = (Button) findViewById(R.id.search_button);
         button.setOnClickListener(this);
         
+         View btnClick = findViewById(R.id.loginScreen);
+	//set event listener
+        btnClick.setOnClickListener(this);
         
         
         //spinner.r
     }
 
-     public void onClick(View v) {
-       String[][] result = dao.getProducts();
+     public void onClick(View arg0) {
+       //String[][] result = dao.getProducts();
+         //if(arg0.getId() == R.id.search_button){
+		//define a new Intent for the second Activity
+		//Intent intent = new Intent(this,search_othonh.class);
+ 
+		//start the second Activity
+		//this.startActivity(intent);
+	
+         if(arg0.getId() == R.id.loginScreen){
+		//define a new Intent for the second Activity
+		Intent intent = new Intent(this,LoginScreen.class);
+ 
+		//start the second Activity
+		this.startActivity(intent);
+	}
    
     }
 

@@ -256,14 +256,14 @@ public class Dao {
 
 		try {
 			Statement statement = conn.createStatement();
-			ResultSet rs = statement.executeQuery("SELECT [City]\n"
-                                    + "  FROM [dbo].[Location]\n"
+			ResultSet rs = statement.executeQuery("SELECT [County_Name]\n"
+                                    + "  FROM [dbo].[Counties]\n"
                                     + "GO");
                          
                         String[] resultArray = new String[15];
                         rs.next();
                         for (int i = 0; i < 15; i++) {
-                            resultArray[i] = rs.getString("City");
+                            resultArray[i] = rs.getString("County_Name");
                             rs.next();
                         }
 			rs.close();
