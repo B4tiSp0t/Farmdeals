@@ -239,14 +239,14 @@ public class Dao {
             for (int i = 0; i < numberOfProducts; i++) {
                 resultArray[i][0] = rs.getString("Product_Name");
                 resultArray[i][1] = rs.getString("Product_Description");
-                resultArray[i][2] = rs.getString("Address");
-                resultArray[i][3] = Integer.toString(rs.getInt("Product_Price"));
-                resultArray[i][4] = Integer.toString(rs.getInt("Number"));
-                resultArray[i][5] = Integer.toString(rs.getInt("Zip_Code"));
-                resultArray[i][6] = Integer.toString(rs.getInt("Quantity"));
-                resultArray[i][7] = rs.getString("County_Name");
-                resultArray[i][8] = rs.getString("Measurement_Type");
-                resultArray[i][9] = rs.getString("Region_Name");
+                resultArray[i][2] = Integer.toString(rs.getInt("Quantity"));
+                resultArray[i][3] = rs.getString("Measurement_Type");
+                resultArray[i][4] = rs.getString("Product_Price");
+                resultArray[i][5] = rs.getString("County_Name");
+                resultArray[i][6] = rs.getString("Region_Name");
+                resultArray[i][7] = rs.getString("Address");
+                resultArray[i][8] = Integer.toString(rs.getInt("Number"));
+                resultArray[i][9] = Integer.toString(rs.getInt("Zip_Code"));
                 rs.next();
             }
 
@@ -325,74 +325,5 @@ public class Dao {
         }
         return null;
     }
-
-    public String[][] getFarmerProducts(int farmerID) {
-        if (conn == null) {
-
-            throw new InstantiationError(
-                    "call Dao.connect(...) before calling Dao operations");
-
-        }
-
-        try {
-            String query = "SELECT COUNT ([Product_ID]) AS 'ROWCOUNT'\n"
-                    + "FROM [Products]\n"
-                    + "  JOIN Farmer_Products\n"
-                    + "  ON Farmer_Products.Product_ID=Products.Product_ID\n"
-                    + "  JOIN Farmer\n"
-                    + "  ON Farmer.Farmer_ID=Farmer_Products.Farmer_ID\n"
-                    + "  WHERE Farmer.Farmer_ID= " + farmerID;
-
-            
-
-            Statement statement = conn.createStatement();
-            ResultSet resultSetForCountingProducts = statement.executeQuery(query);
-
-            resultSetForCountingProducts.next();
-            int numberOfProducts = resultSetForCountingProducts.getInt("rowcount");
-
-            resultSetForCountingProducts.close();
-
-            String resultsQuery = "SELECT [Product_Name]\n"
-                    + "      ,[Product_Description]\n"
-                    + "      ,[Product_Price]\n"
-                    + "      ,[Address]\n"
-                    + "      ,[Number]\n"
-                    + "      ,[Zip_Code]\n"
-                    + "      ,[Quantity]\n"
-                    + "  FROM [Products]\n"
-                    + "  JOIN Farmer_Products\n"
-                    + "  ON Farmer_Products.Product_ID=Products.Product_ID\n"
-                    + "  JOIN Farmer\n"
-                    + "  ON Farmer.Farmer_ID=Farmer_Products.Farmer_ID\n"
-                    + "  WHERE Farmer.Farmer_ID=" + farmerID;
-
-            ResultSet rs = statement.executeQuery(resultsQuery);
-
-            String[][] resultArray = new String[numberOfProducts][7];
-            rs.next();
-            for (int i = 0; i < numberOfProducts; i++) {
-                resultArray[i][0] = rs.getString("Product_Name");
-                resultArray[i][1] = rs.getString("Product_Description");
-                resultArray[i][2] = rs.getString("Address");
-                resultArray[i][3] = Integer.toString(rs.getInt("Product_Price"));
-                resultArray[i][4] = Integer.toString(rs.getInt("Number"));
-                resultArray[i][5] = Integer.toString(rs.getInt("Zip_Code"));
-                resultArray[i][6] = Integer.toString(rs.getInt("Quantity"));
-                rs.next();
-            }
-
-            rs.close();
-            statement.close();
-
-            return resultArray;
-        } catch (SQLException e) {
-
-            e.printStackTrace();
-
-        }
-        return null;
-    }
-
     
 }

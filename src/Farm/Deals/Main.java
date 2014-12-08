@@ -11,12 +11,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.ImageView;
+import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Main extends Activity implements DBConnectionListener, OnClickListener
 {
     private Spinner categories_spinner , location_spinner , sort_spinner, spinnerArrayAdapter;
     private Dao dao;
+ 
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -27,13 +30,6 @@ public class Main extends Activity implements DBConnectionListener, OnClickListe
         dao.connect("b4tisp0t.ddns.net:1433", "projectpass", "projectuser", "projectdb;");
        
         setContentView(R.layout.main);
- 
-	//get the Button reference
-	//Button is a subclass of View
-	//buttonClick is defined in main.xml "@+id/buttonClick"
-        View btnClick = findViewById(R.id.loginScreen);
-	//set event listener
-        btnClick.setOnClickListener(this);
     }
 
     @Override
@@ -113,16 +109,12 @@ public class Main extends Activity implements DBConnectionListener, OnClickListe
         sort_spinner.setAdapter(adapter3);
         
         
-       
+        ImageButton imageButton = (ImageButton) findViewById(R.id.loginScreen);
+        imageButton.setOnClickListener(this);
+        
         Button button = (Button) findViewById(R.id.search_button);
         button.setOnClickListener(this);
         
-        Button btnClick = (Button)findViewById(R.id.loginScreen);
-	//set event listener
-        btnClick.setOnClickListener(this);
-        
-        
-        //spinner.r
     }
 
      public void onClick(View arg0) {
@@ -132,13 +124,19 @@ public class Main extends Activity implements DBConnectionListener, OnClickListe
              EditText productNameField = (EditText)findViewById(R.id.productNameField);
              String productName = productNameField.getText().toString();
              String[][] result = dao.searchProducts(categoryID, productName, locationID);
-             
-             Intent intent = new Intent(this,SearchResultsActivity.class);
-             Bundle bundle = new Bundle();
-             bundle.putSerializable("results", result);
-             intent.putExtras(bundle);
-             this.startActivity(intent);
-             //newIntent.putExtra("name",value);
+             if (result.length == 0)
+                     {
+                     Toast.makeText(Main.this,
+		       "Δέν υπάρχουν αποτελέσματα", Toast.LENGTH_LONG).show();
+                     }
+             else{
+                 Intent intent = new Intent(this, SearchResultsActivity.class);
+                 Bundle bundle = new Bundle();
+                 bundle.putSerializable("results", result);
+                 intent.putExtras(bundle);
+                 this.startActivity(intent);
+                 //newIntent.putExtra("name",value);
+             }
          }
 	
          if(arg0.getId() == R.id.loginScreen){
