@@ -10,11 +10,8 @@ package Farm.Deals;
 import android.app.Activity;
 import android.os.Bundle;
 
-/**
- *
- * @author aris
- */
-public class LoginScreen extends Main { 
+
+public class LoginScreen extends Activity { 
        @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

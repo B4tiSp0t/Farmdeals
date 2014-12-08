@@ -134,7 +134,7 @@ public class Main extends Activity implements DBConnectionListener, OnClickListe
 	
          if(arg0.getId() == R.id.loginScreen){
 		//define a new Intent for the second Activity
-		Intent intent = new Intent(this,LoginScreen.class);
+		Intent intent = new Intent(this,SignUpScreen.class);
  
 		//start the second Activity
 		this.startActivity(intent);

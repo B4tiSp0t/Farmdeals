@@ -276,4 +276,33 @@ public class Dao {
 		}
         return null;    
         }
-}
+        
+        public  String[][] signup(String name,String surname,String RC,String phone,String DOB,String address,String email,String password,String passwordConfirm){
+       if (conn == null) {
+
+			throw new InstantiationError(
+					"call Dao.connect(...) before calling Dao operations");
+
+		}
+
+	try { 
+            String accountquery= "INSERT INTO [dbo].[Accounts]([Email],[Password]) VALUES(email,password);";
+                Statement statement = conn.createStatement();
+                 ResultSet resultSetForInsertData = statement.executeQuery(accountquery);
+                 
+                 resultSetForInsertData.next();
+           String farmerquery= "INSERT INTO [dbo].[Farmer] ([Farmer_Name],[Farmer_Surname],[Farmer_DOB],[Farmer_Address],[Farmer_Phone],[Farmer_RC]) VALUES(name,surname,DOB,Address,phone,RC);";
+       
+          	
+                 
+                  resultSetForInsertData.close();
+                  ResultSet rs = statement.executeQuery(farmerquery);
+                   rs.close();
+             statement.close(); 
+        } catch (Exception e) {
+
+			e.printStackTrace();
+
+		}
+        return null;    
+        }}

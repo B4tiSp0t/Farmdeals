@@ -12,6 +12,10 @@
             </intent-filter>
         </activity>
         <activity android:label="ΣΥΝΔΕΣΗ" android:name="LoginScreen"> </activity>
+        <activity
+                android:name="SignUpScreen"
+                android:label="Sign Up">
+        </activity>
     </application>
     <uses-permission android:name="android.permission.INTERNET" />
 </manifest>

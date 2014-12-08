@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout
+	android:id="@+id/absLayout"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	xmlns:android="http://schemas.android.com/apk/res/android">
+<LinearLayout
+	android:id="@+id/linLayout"
+	android:layout_width="316dp"
+	android:layout_height="450dp"
+	android:orientation="vertical"
+	android:layout_x="3dp"
+	android:layout_y="0dp">
+<TextView
+	android:id="@+id/farmerInfo"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="ΣΤΟΙΧΕΙΑ ΑΓΡΟΤΗ"
+	android:textSize="15sp"
+	android:textStyle="bold|italic"
+	android:textColor="#00FF00" />
+<TextView
+	android:id="@+id/farmerName"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="* Όνομα "
+	android:textStyle="bold"
+	android:textColor="#FFFFFF" />
+<EditText
+	android:id="@+id/nameField"
+	android:layout_width="192dp"
+	android:layout_height="30dp"
+	android:textSize="8dp"
+	android:textStyle="bold"
+	android:textColor="#a9a9a9" />
+<TextView
+	android:id="@+id/farmerSurname"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="*Επώνυμο"
+	android:textStyle="bold" />
+<EditText
+	android:id="@+id/surnameField"
+	android:layout_width="192dp"
+	android:layout_height="30dp"
+	android:textSize="8dp"
+	android:textStyle="bold"
+	android:textColor="#a9a9a9" />
+<TextView
+	android:id="@+id/farmerRC"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="*ΑΦΜ Αγρότη"
+	android:textStyle="bold" />
+<EditText
+	android:id="@+id/RCField"
+	android:layout_width="192dp"
+	android:layout_height="30dp"
+	android:textSize="8dp"
+	android:textStyle="bold"
+	android:textColor="#a9a9a9" />
+<TextView
+	android:id="@+id/farmerPhone"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="*Τηλέφωνο"
+	android:textStyle="bold" />
+<EditText
+	android:id="@+id/phoneField"
+	android:layout_width="192dp"
+	android:layout_height="30dp"
+	android:textSize="8dp"
+	android:textStyle="bold"
+	android:textColor="#a9a9a9" />
+<TextView
+	android:id="@+id/farmerDOB"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="Ημερομηνία Γέννησης"
+	android:textStyle="bold" />
+<EditText
+	android:id="@+id/DOBField"
+	android:layout_width="192dp"
+	android:layout_height="24dp"
+	android:textSize="8dp"
+	android:textStyle="bold"
+	android:textColor="#a9a9a9" />
+<TextView
+	android:id="@+id/farmerAddress"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="Διεύθυνση"
+	android:textStyle="bold" />
+<EditText
+	android:id="@+id/addressField"
+	android:layout_width="192dp"
+	android:layout_height="30dp"
+	android:textSize="8dp"
+	android:textStyle="bold"
+	android:textColor="#a9a9a9" />
+<TextView
+	android:id="@+id/farmerEmail"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="*Email"
+	android:textStyle="bold" />
+<EditText
+	android:id="@+id/emailField"
+	android:layout_width="192dp"
+	android:layout_height="30dp"
+	android:textSize="8dp"
+	android:textStyle="bold"
+	android:textColor="#a9a9a9" />
+<TextView
+	android:id="@+id/farmerPassword"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="*Password"
+	android:textStyle="bold" />
+<EditText
+	android:id="@+id/passwordField"
+	android:layout_width="192dp"
+	android:layout_height="30dp"
+	android:textSize="8dp"
+	android:textStyle="bold"
+	android:textColor="#a9a9a9" />
+<TextView
+	android:id="@+id/confirmPass"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="*Επαλήθευση Password"
+	android:textStyle="bold" />
+<EditText
+	android:id="@+id/passwordConfirmField"
+	android:layout_width="192dp"
+	android:layout_height="30dp"
+	android:textSize="8dp"
+	android:textStyle="bold"
+	android:textColor="#a9a9a9" />
+<TextView
+	android:id="@+id/info"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="Τα στοιχεία με * είναι υποχρεωτικό να συμπληρωθούν"
+	android:textSize="12sp" />
+</LinearLayout>
+<Button
+	android:id="@+id/submitButton"
+	android:layout_width="106dp"
+	android:layout_height="33dp"
+	android:text="Sign Up"
+	android:textStyle="bold"
+	android:textColor="#a9a9a9"
+	android:layout_x="207dp"
+	android:layout_y="157dp" />
+</AbsoluteLayout>
