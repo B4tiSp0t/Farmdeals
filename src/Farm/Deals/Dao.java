@@ -19,6 +19,7 @@ public class Dao {
 	private String password;
 	private String username;
 	private String dbName;
+    private String result;
        
 
 	private Dao() {
@@ -276,4 +277,88 @@ public class Dao {
 		}
         return null;    
         }
+        
+        public String[][] getAccounts()
+        {
+            if (conn == null) {
+                throw new InstantiationError("call Dao.connect(...) before calling Dao operations");
+            }
+            try{
+		Statement statement = conn.createStatement();
+		ResultSet rs = statement.executeQuery("SELECT [Email]\n"
+                                            + "      ,[Password]\n"
+                                            + "  FROM [dbo].[Accounts]\n"
+                                            + "GO");
+                         
+               String[][] resultArray = new String[15][2];
+               rs.next();
+               for (int i = 0; i < 15; i++) {
+                   resultArray[i][0] = rs.getString("Email");
+                   resultArray[i][1] = rs.getString("Password");
+                   rs.next();
+               }
+               
+               rs.close();
+               statement.close();
+               
+               return resultArray;
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            return null;    
+        }
+        
+        public String login(String email, String password)
+        {
+            if (conn == null) {
+
+			throw new InstantiationError(
+					"call Dao.connect(...) before calling Dao operations");
+
+		}
+
+		try {
+                        String query = "SELECT COUNT ([Account_ID]) AS 'ROWCOUNT'\n"
+                            + "FROM [Accounts]\n";
+      
+                
+			Statement statement = conn.createStatement();
+                        ResultSet resultSetForCountingAccounts = statement.executeQuery(query);
+ 
+                        resultSetForCountingAccounts.next();
+                        int numberOfAccounts = resultSetForCountingAccounts.getInt("rowcount");
+                        resultSetForCountingAccounts.close();
+                        
+                         String resultsQuery = "SELECT Accounts.[Account_ID]\n"
+                            +"       ,Accounts.[Email]\n"
+                            + "      ,Accounts.[Password]\n"
+                            + "FROM [Accounts]\n";
+                         
+                         ResultSet rs = statement.executeQuery(resultsQuery);
+                         String[][] resultArray = new String[numberOfAccounts][2];
+                         rs.next();
+                         for (int i = 0; i < numberOfAccounts; i++) {
+                            resultArray[i][0] = rs.getString("Email");
+                            resultArray[i][1] = rs.getString("Password");
+                            rs.next();
+                        }
+                         rs.close();
+                        result ="0";  
+                        for (int i = 0; i < numberOfAccounts; i++)
+                        {
+                            if (email == resultArray[i][1] && password == resultArray[i][2])
+                                result = "1";       
+                        }
+                    
+			statement.close();
+
+                         return result;
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+
+		}
+        return null;    
+        }
+
 }

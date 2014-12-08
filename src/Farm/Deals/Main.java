@@ -23,7 +23,7 @@ public class Main extends Activity implements DBConnectionListener, OnClickListe
         dao = Dao.instance(this);
         dao.connect("b4tisp0t.ddns.net:1433", "projectpass", "projectuser", "projectdb;");
        
-        setContentView(R.layout.main);
+        this.setContentView(R.layout.main);
  
 	//get the Button reference
 	//Button is a subclass of View
@@ -115,10 +115,9 @@ public class Main extends Activity implements DBConnectionListener, OnClickListe
         Button button = (Button) findViewById(R.id.search_button);
         button.setOnClickListener(this);
         
-         View btnClick = findViewById(R.id.loginScreen);
+       View btnClick = findViewById(R.id.loginScreen);
 	//set event listener
         btnClick.setOnClickListener(this);
-        
         
         //spinner.r
     }

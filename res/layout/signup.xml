@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout
+	android:id="@+id/widget38"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	xmlns:android="http://schemas.android.com/apk/res/android">
+<TextView
+	android:id="@+id/signup"
+	android:layout_width="wrap_content"
+	android:layout_height="24dp"
+	android:text="sign up"
+	android:layout_x="77dp"
+	android:layout_y="144dp" />
+</AbsoluteLayout>

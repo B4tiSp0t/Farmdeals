@@ -11,7 +11,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:label="ΣΥΝΔΕΣΗ" android:name="LoginScreen"> </activity>
+        <activity android:label="Login screen" android:name="LoginScreen"> </activity>
+        <activity android:name="SignUpScreen"
+                  android:label="Sign Up Screen">
+        </activity>
+        <activity
+                  android:name="FarmerProductsScreen"
+                  android:label="FarmerProducts Screen">
+        </activity>
+        <activity
+                  android:name="LoginFailedMessageScreen"
+                  android:label="Login Failed Message Screen">
+        </activity>
     </application>
     <uses-permission android:name="android.permission.INTERNET" />
 </manifest>

@@ -3,6 +3,8 @@
     <string name="app_name">FarmDeals</string>
     <string name="button">Αναζήτηση</string>
     <string name="btnClick">ΣΥΝΔΕΣΗ/ΕΓΓΡΑΦΗ</string>
+    <string name="btnSignUp">Sign up</string>
+    <string name="btnLogin">Login</string>
     <string-array name="sort_array">
         <item>Αύξουσα Τιμή</item>
         <item>Φθίνουσα Τιμή</item>
