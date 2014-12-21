@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AbsoluteLayout
+	android:id="@+id/widget0"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	xmlns:android="http://schemas.android.com/apk/res/android">
+<TextView
+	android:id="@+id/ProdName"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="&#908;&#957;&#959;&#956;&#945;"
+	android:layout_x="89dp"
+	android:layout_y="20dp" />
+<TextView
+	android:id="@+id/Name1"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="TextView"
+	android:layout_x="170dp"
+	android:layout_y="20dp" />
+<TextView
+	android:id="@+id/Description"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="&#928;&#949;&#961;&#953;&#947;&#961;&#945;&#966;&#942;"
+	android:layout_x="64dp"
+	android:layout_y="42dp" />
+<TextView
+	android:id="@+id/Quantity"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="&#928;&#959;&#963;&#972;&#964;&#951;&#964;&#945;"
+	android:layout_x="69dp"
+	android:layout_y="65dp" />
+<TextView
+	android:id="@+id/Measurement"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="&#924;&#959;&#957;&#940;&#948;&#945; &#924;&#941;&#964;&#961;&#951;&#963;&#951;&#962;"
+	android:layout_x="14dp"
+	android:layout_y="87dp" />
+<TextView
+	android:id="@+id/Price"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="&#932;&#953;&#956;&#942;"
+	android:layout_x="100dp"
+	android:layout_y="113dp" />
+<TextView
+	android:id="@+id/Address"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="&#916;&#953;&#949;&#973;&#952;&#965;&#957;&#963;&#951;"
+	android:layout_x="62dp"
+	android:layout_y="135dp" />
+<TextView
+	android:id="@+id/Number"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="&#913;&#961;&#953;&#952;&#956;&#972;&#962;"
+	android:layout_x="77dp"
+	android:layout_y="156dp" />
+<TextView
+	android:id="@+id/P.S."
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="&#932;.&#922;."
+	android:layout_x="101dp"
+	android:layout_y="179dp" />
+<TextView
+	android:id="@+id/Region"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="&#928;&#949;&#961;&#953;&#959;&#967;&#942;"
+	android:layout_x="76dp"
+	android:layout_y="202dp" />
+<TextView
+	android:id="@+id/County"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="&#925;&#959;&#956;&#972;&#962;"
+	android:layout_x="83dp"
+	android:layout_y="227dp" />
+<TextView
+	android:id="@+id/FName"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="&#908;&#957;&#959;&#956;&#945;"
+	android:layout_x="78dp"
+	android:layout_y="261dp" />
+<TextView
+	android:id="@+id/Surname"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="&#917;&#960;&#943;&#952;&#949;&#964;&#959;"
+	android:layout_x="69dp"
+	android:layout_y="286dp" />
+<TextView
+	android:id="@+id/Description1"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="TextView"
+	android:layout_x="169dp"
+	android:layout_y="42dp" />
+<TextView
+	android:id="@+id/Quantity1"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="TextView"
+	android:layout_x="169dp"
+	android:layout_y="66dp" />
+<TextView
+	android:id="@+id/Measurement1"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="TextView"
+	android:layout_x="169dp"
+	android:layout_y="89dp" />
+<TextView
+	android:id="@+id/Price1"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="TextView"
+	android:layout_x="168dp"
+	android:layout_y="113dp" />
+<TextView
+	android:id="@+id/Address1"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="TextView"
+	android:layout_x="168dp"
+	android:layout_y="137dp" />
+<TextView
+	android:id="@+id/Number1"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="TextView"
+	android:layout_x="168dp"
+	android:layout_y="156dp" />
+<TextView
+	android:id="@+id/P.S.1"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="TextView"
+	android:layout_x="168dp"
+	android:layout_y="179dp" />
+<TextView
+	android:id="@+id/Region1"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="TextView"
+	android:layout_x="169dp"
+	android:layout_y="203dp" />
+<TextView
+	android:id="@+id/County1"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="TextView"
+	android:layout_x="166dp"
+	android:layout_y="229dp" />
+<TextView
+	android:id="@+id/FNAme1"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="TextView"
+	android:layout_x="169dp"
+	android:layout_y="260dp" />
+<TextView
+	android:id="@+id/Surname1"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="TextView"
+	android:layout_x="170dp"
+	android:layout_y="286dp" />
+<TextView
+	android:id="@+id/Phone"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="&#932;&#951;&#955;&#941;&#966;&#969;&#957;&#959;"
+	android:layout_x="55dp"
+	android:layout_y="307dp" />
+<TextView
+	android:id="@+id/Phone1"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="TextView"
+	android:layout_x="167dp"
+	android:layout_y="309dp" />
+</AbsoluteLayout>
