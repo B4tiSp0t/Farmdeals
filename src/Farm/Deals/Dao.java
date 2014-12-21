@@ -276,4 +276,75 @@ public class Dao {
 		}
         return null;    
         }
+        public String[] getProductInfo(int productId)
+    {
+        if (conn == null) {
+
+            throw new InstantiationError(
+                    "call Dao.connect(...) before calling Dao operations");
+
+        }
+
+        try {
+            String query = "SELECT [Product_Name]\n"
+                    + "      ,[Product_Description]\n"
+                    + "      ,[Product_Price]\n"
+                    + "      ,[Address]\n"
+                    + "      ,[Number]\n"
+                    + "      ,[Zip_Code]\n"
+                    + "      ,[Quantity]\n"
+                    + "	  ,[Region_Name]\n"
+                    + "	  ,[Measurement_Type]\n"
+                    + "	  ,[Counties].County_Name\n"
+                    + "	  ,[Farmer].Farmer_Name\n"
+                    + "	  ,[Farmer].Farmer_Surname\n"
+                    + "	  ,[Farmer].Farmer_Phone\n"
+                    + "  FROM [dbo].[Products]\n"
+                    + "  JOIN [Regions]\n"
+                    + "                    ON Regions.Region_ID=Products.Region_ID\n"
+                    + "                    JOIN [Counties]\n"
+                    + "                    ON Counties.County_ID=Regions.County_ID\n"
+                    + "                    JOIN [Measurements]\n"
+                    + "                    ON Measurements.Measurement_ID=Products.Measurement_ID\n"
+                    + "					JOIN [Farmer_Products]\n"
+                    + "                    ON Farmer_Products.Product_ID = Products.Product_ID\n"
+                    + "					JOIN [Farmer]\n"
+                    + "                    ON Farmer.Farmer_ID = Farmer_Products.Farmer_ID "
+                    + "                    WHERE Products.Product_ID = " + productId + ";";
+            
+
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery(query);
+
+            
+
+            String[] resultArray = new String[13];
+            rs.next();
+           
+                resultArray[0] = rs.getString("Product_Name");
+                resultArray[1] = rs.getString("Product_Description");
+                resultArray[2] = Integer.toString(rs.getInt("Quantity"));
+                resultArray[3] = rs.getString("Measurement_Type");
+                resultArray[4] = rs.getString("Product_Price");
+                resultArray[5] = rs.getString("Address");
+                resultArray[6] = rs.getString("Number");
+                resultArray[7] = rs.getString("Zip_Code");
+                resultArray[8] = rs.getString("Region_Name");
+                resultArray[9] = rs.getString("County_Name");
+                resultArray[10] = rs.getString("Farmer_Name");
+                resultArray[11] = rs.getString("Farmer_Surname");
+                resultArray[12] = rs.getString("Farmer_Phone");
+            
+
+            rs.close();
+            statement.close();
+
+            return resultArray;
+        } catch (SQLException e) {
+
+            e.printStackTrace();
+
+        }
+        return null;
+    }
 }
