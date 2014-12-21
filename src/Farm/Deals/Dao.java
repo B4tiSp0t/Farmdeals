@@ -341,35 +341,67 @@ public class Dao {
         }
         
 }
- public String [] getprotuctDetailsActivity()
-        {
-            if (conn == null) {
+void deleteProduct(int productId) {
+        if (conn == null) {
 
-			throw new InstantiationError(
-					"call Dao.connect(...) before calling Dao operations");
+            throw new InstantiationError(
+                    "call Dao.connect(...) before calling Dao operations");
 
-		}
-            try {
-			Statement statement = conn.createStatement();
-			ResultSet rs = statement.executeQuery("SELECT [protuct_Name]\n"
-                                    + "  FROM [dbo].[Protuct]\n"
-                                    + "ΕΠΟΜΕΝΟ");
-                         
-                        String[] resultArray = new String[15];
-                        rs.next();
-                        for (int i = 0; i < 15; i++) {
-                            resultArray[i] = rs.getString("protuct_Name");
-                            rs.next();
-                        }
-			rs.close();
-			statement.close();
-                         return resultArray;
-		} catch (SQLException e) {
-
-			e.printStackTrace();
-
-		}
-        return null;    
         }
-      
+
+        try {
+            
+            String farmerProductsQuery = "DELETE FROM [dbo].[Farmer_Products]\n" +
+                "      WHERE Product_ID = ? ;";
+            PreparedStatement statement = conn.prepareStatement(farmerProductsQuery);
+            statement.setInt(1, productId);
+            statement.executeUpdate();
+                        
+            String productquery = "DELETE FROM [dbo].[Products]\n" +
+                        "      WHERE Product_ID = ?;"; 
+            
+            PreparedStatement productStatement = conn.prepareStatement(productquery);
+            productStatement.setInt(1, productId);
+            productStatement.executeUpdate();
+                        
+        } catch (Exception e) {
+
+            e.printStackTrace();
+
+        }
+    }
+    
+    void editFarmerProduct(int productID, String price, String productDescription, int quantity) {
+        if (conn == null) {
+
+            throw new InstantiationError(
+                    "call Dao.connect(...) before calling Dao operations");
+
+        }
+
+        try {
+
+            String updateTableSQL = "UPDATE [dbo].[Products]\n"
+                    + "   SET [Product_Description] = ?\n"
+                    + "      ,[Product_Price] = ?\n"
+                    + "      ,[Quantity] = ?\n"
+                    + " WHERE Product_ID = ?;";
+            PreparedStatement preparedStatement = conn.prepareStatement(updateTableSQL);
+            preparedStatement.setString(1, productDescription);
+            preparedStatement.setString(2, price);
+            preparedStatement.setInt(3, quantity);
+            preparedStatement.setInt(4, productID);
+            preparedStatement.executeUpdate();
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+
+        }
+        
+        
+        
+        
+        
+    }
 }
