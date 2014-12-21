@@ -308,7 +308,7 @@ public class Dao {
             return null;    
         }
         
-        public String login(String email, String password)
+        public int login(String email, String password)
         {
             if (conn == null) {
 
@@ -318,8 +318,10 @@ public class Dao {
 		}
 
 		try {
-                        String query = "SELECT COUNT ([Account_ID]) AS 'ROWCOUNT'\n"
-                            + "FROM [Accounts]\n";
+                        String query = "SELECT COUNT ([Account_ID]) AS 'rowcount'\n"
+                            + "FROM [Accounts]\n"
+                                 + "WHERE [Email] = '" + email + "' AND "
+                                + "[Password] = '" + password + "'";
       
                 
 			Statement statement = conn.createStatement();
@@ -328,37 +330,33 @@ public class Dao {
                         resultSetForCountingAccounts.next();
                         int numberOfAccounts = resultSetForCountingAccounts.getInt("rowcount");
                         resultSetForCountingAccounts.close();
-                        
-                         String resultsQuery = "SELECT Accounts.[Account_ID]\n"
-                            +"       ,Accounts.[Email]\n"
-                            + "      ,Accounts.[Password]\n"
-                            + "FROM [Accounts]\n";
+                        if(numberOfAccounts <= 0)
+                        {
+                            return numberOfAccounts;
+                        }
+                               
+                         String resultsQuery = "SELECT [Account_ID]\n"
+                            +"       ,[Email]\n"
+                            + "      ,[Password]\n"
+                            + "FROM [Accounts]\n"
+                            + "WHERE [Email] = '" + email + "' AND "
+                            + "[Password] = '" + password + "'";
                          
                          ResultSet rs = statement.executeQuery(resultsQuery);
-                         String[][] resultArray = new String[numberOfAccounts][2];
                          rs.next();
-                         for (int i = 0; i < numberOfAccounts; i++) {
-                            resultArray[i][0] = rs.getString("Email");
-                            resultArray[i][1] = rs.getString("Password");
-                            rs.next();
-                        }
+                         int accountId = rs.getInt("Account_ID");
+                        
                          rs.close();
-                        result ="0";  
-                        for (int i = 0; i < numberOfAccounts; i++)
-                        {
-                            if (email == resultArray[i][1] && password == resultArray[i][2])
-                                result = "1";       
-                        }
-                    
-			statement.close();
+                        statement.close();
 
-                         return result;
+                         return accountId;
 		} catch (SQLException e) {
 
 			e.printStackTrace();
 
 		}
-        return null;    
+        return 0;    
         }
+
 
 }
