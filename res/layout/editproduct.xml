@@ -1,0 +1,63 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<AbsoluteLayout
+	android:id="@+id/editProductLayout"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	xmlns:android="http://schemas.android.com/apk/res/android">
+<TextView
+	android:id="@+id/editQuantityTextView"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:padding="10dp"
+	android:text="&#928;&#959;&#963;&#972;&#964;&#951;&#964;&#945;"
+	android:layout_x="14dp"
+	android:layout_y="35dp" />
+<EditText
+	android:id="@+id/editQuantityEditTextView"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:hint="&#928;&#959;&#963;&#972;&#964;&#951;&#964;&#945;"
+	android:textSize="18sp"
+	android:layout_x="112dp"
+	android:layout_y="31dp" />
+<TextView
+	android:id="@+id/editPriceTextView"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:padding="10dp"
+	android:text="&#932;&#953;&#956;&#942;"
+	android:layout_x="14dp"
+	android:layout_y="111dp" />
+<EditText
+	android:id="@+id/editPriceEditTextView"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:hint="&#932;&#953;&#956;&#942;"
+	android:textSize="18sp"
+	android:layout_x="112dp"
+	android:layout_y="97dp" />
+<TextView
+	android:id="@+id/editDescriptionTextView"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:padding="10dp"
+	android:text="&#928;&#949;&#961;&#953;&#947;&#961;&#945;&#966;&#942;"
+	android:layout_x="14dp"
+	android:layout_y="179dp" />
+<EditText
+	android:id="@+id/editDescriptionEditTextView"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:hint="&#928;&#949;&#961;&#953;&#947;&#961;&#945;&#966;&#942;"
+	android:textSize="18sp"
+	android:layout_x="112dp"
+	android:layout_y="172dp" />
+<Button
+	android:id="@+id/saveEditButton"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="&#913;&#960;&#959;&#952;&#942;&#954;&#949;&#965;&#963;&#951;"
+	android:layout_x="111dp"
+	android:layout_y="283dp" />
+</AbsoluteLayout>
