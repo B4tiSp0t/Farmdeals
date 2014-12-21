@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package Farm.Deals;
 
 import android.app.Activity;
@@ -12,11 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
+import android.widget.Toast;
 
-/**
- *
- * @author aris
- */
 public class LoginScreen extends Activity implements DBConnectionListener, OnClickListener {
     
     private Dao dao;
@@ -88,21 +79,21 @@ public class LoginScreen extends Activity implements DBConnectionListener, OnCli
             EditText passwordField = (EditText)findViewById(R.id.text_password);
             String email = emailField.getText().toString();
             String password = passwordField.getText().toString();
-            String result = dao.login(email, password);
+            int result = dao.login(email, password);
              
-            if (result =="0")
+            if (result <= 0)
             {
                 //define a new Intent for the second Activity
-                Intent intent = new Intent(this,LoginFailedMessageScreen.class);
-                //start the second Activity
-                this.startActivity(intent);
-            }
-            if (result =="1")
+                Toast.makeText(LoginScreen.this,
+		       "Λάθος συνδυασμός email και password", Toast.LENGTH_LONG).show();
+            }else
             {
                 //define a new Intent for the second Activity
-                Intent intent = new Intent(this,FarmerProductsScreen.class);
-                //start the second Activity
+                Intent intent = new Intent(this,FarmerProductsActivity.class);
+                intent.putExtra("accountID", result);
+                dao.disconnect();
                 this.startActivity(intent);
+                
             }
         }
    
