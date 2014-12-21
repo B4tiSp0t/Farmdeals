@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout
+	android:id="@+id/widget0135"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	xmlns:android="http://schemas.android.com/apk/res/android">
+<TextView
+	android:id="@+id/FarmerProductName"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="&#908;&#957;&#959;&#956;&#945;"
+	android:layout_x="89dp"
+	android:layout_y="20dp" />
+<TextView
+	android:id="@+id/FarmerProductName1"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="TextView"
+	android:layout_x="170dp"
+	android:layout_y="20dp" />
+<TextView
+	android:id="@+id/FarmerProductDescription"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="&#928;&#949;&#961;&#953;&#947;&#961;&#945;&#966;&#942;"
+	android:layout_x="64dp"
+	android:layout_y="42dp" />
+<TextView
+	android:id="@+id/FarmerProductQuantity"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="&#928;&#959;&#963;&#972;&#964;&#951;&#964;&#945;"
+	android:layout_x="69dp"
+	android:layout_y="65dp" />
+<TextView
+	android:id="@+id/FarmerProductMeasurement"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="&#924;&#959;&#957;&#940;&#948;&#945; &#924;&#941;&#964;&#961;&#951;&#963;&#951;&#962;"
+	android:layout_x="14dp"
+	android:layout_y="87dp" />
+<TextView
+	android:id="@+id/FarmerProductPrice"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="&#932;&#953;&#956;&#942;"
+	android:layout_x="100dp"
+	android:layout_y="113dp" />
+<TextView
+	android:id="@+id/FarmerProductAddress"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="&#916;&#953;&#949;&#973;&#952;&#965;&#957;&#963;&#951;"
+	android:layout_x="62dp"
+	android:layout_y="135dp" />
+<TextView
+	android:id="@+id/FarmerProductNumber"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="&#913;&#961;&#953;&#952;&#956;&#972;&#962;"
+	android:layout_x="77dp"
+	android:layout_y="156dp" />
+<TextView
+	android:id="@+id/FarmerProductP.S."
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="&#932;.&#922;."
+	android:layout_x="101dp"
+	android:layout_y="179dp" />
+<TextView
+	android:id="@+id/FarmerProductRegion"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="&#928;&#949;&#961;&#953;&#959;&#967;&#942;"
+	android:layout_x="76dp"
+	android:layout_y="202dp" />
+<TextView
+	android:id="@+id/FarmerProductCounty"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="&#925;&#959;&#956;&#972;&#962;"
+	android:layout_x="83dp"
+	android:layout_y="227dp" />
+<TextView
+	android:id="@+id/FarmerProductFName"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="&#908;&#957;&#959;&#956;&#945;"
+	android:layout_x="78dp"
+	android:layout_y="261dp" />
+<TextView
+	android:id="@+id/FarmerProductSurname"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="&#917;&#960;&#943;&#952;&#949;&#964;&#959;"
+	android:layout_x="69dp"
+	android:layout_y="286dp" />
+<TextView
+	android:id="@+id/FarmerProductDescription1"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="TextView"
+	android:layout_x="169dp"
+	android:layout_y="42dp" />
+<TextView
+	android:id="@+id/FarmerProductQuantity1"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="TextView"
+	android:layout_x="169dp"
+	android:layout_y="66dp" />
+<TextView
+	android:id="@+id/FarmerProductMeasurement1"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="TextView"
+	android:layout_x="169dp"
+	android:layout_y="89dp" />
+<TextView
+	android:id="@+id/FarmerProductPrice1"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="TextView"
+	android:layout_x="168dp"
+	android:layout_y="113dp" />
+<TextView
+	android:id="@+id/FarmerProductAddress1"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="TextView"
+	android:layout_x="168dp"
+	android:layout_y="137dp" />
+<TextView
+	android:id="@+id/FarmerProductNumber1"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="TextView"
+	android:layout_x="168dp"
+	android:layout_y="156dp" />
+<TextView
+	android:id="@+id/FarmerProductP.S.1"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="TextView"
+	android:layout_x="168dp"
+	android:layout_y="179dp" />
+<TextView
+	android:id="@+id/FarmerProductRegion1"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="TextView"
+	android:layout_x="169dp"
+	android:layout_y="203dp" />
+<TextView
+	android:id="@+id/FarmerProductCounty1"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="TextView"
+	android:layout_x="166dp"
+	android:layout_y="229dp" />
+<TextView
+	android:id="@+id/FarmerProductFNAme1"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="TextView"
+	android:layout_x="169dp"
+	android:layout_y="260dp" />
+<TextView
+	android:id="@+id/FarmerProductSurname1"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="TextView"
+	android:layout_x="170dp"
+	android:layout_y="286dp" />
+<TextView
+	android:id="@+id/FarmerProductPhone"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="&#932;&#951;&#955;&#941;&#966;&#969;&#957;&#959;"
+	android:layout_x="55dp"
+	android:layout_y="307dp" />
+<TextView
+	android:id="@+id/FarmerProductPhone1"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="TextView"
+	android:layout_x="167dp"
+	android:layout_y="309dp" />
+<Button
+	android:id="@+id/deleteProductButton"
+	android:layout_width="100dp"
+	android:layout_height="wrap_content"
+	android:text="&#916;&#953;&#945;&#947;&#961;&#945;&#966;&#942;"
+	android:layout_x="36dp"
+	android:layout_y="356dp" />
+<Button
+	android:id="@+id/editProductButton"
+	android:layout_width="100dp"
+	android:layout_height="wrap_content"
+	android:text="&#917;&#960;&#949;&#958;&#949;&#961;&#947;&#945;&#963;&#943;&#945;"
+	android:layout_x="176dp"
+	android:layout_y="356dp" />
+</AbsoluteLayout>
