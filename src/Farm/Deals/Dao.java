@@ -339,38 +339,112 @@ public class Dao {
 		}
         return null;    
         }
-        
-}
-       public String[] getInsert_Product()
+        int insertProduct(String name, String description, String quantity, String price, String region, String address, String number, String zipcode, int categoryID, int locationID, int accountId) {
+        if (conn == null) {
 
-        {
-            if (conn == null) {
+            throw new InstantiationError(
+                    "call Dao.connect(...) before calling Dao operations");
 
-			throw new InstantiationError(
-					"call Dao.connect(...) before calling Dao operations");
-
-		}
-
-		try {
-			Statement statement = conn.createStatement();
-			ResultSet rs = statement.executeQuery("SELECT [Product_Name]\n"
-                                    + "  FROM [dbo].[Product]\n"
-                                    + "Επόμενο");
-                         
-                        String[] resultArray = new String[15];
-                        rs.next();
-                        for (int i = 0; i < 15; i++) {
-                            resultArray[i] = rs.getString("Product_Name");
-                            rs.next();
-                        }
-			rs.close();
-			statement.close();
-                         return resultArray;
-		} catch (SQLException e) {
-
-			e.printStackTrace();
-
-		}
-        return null;    
         }
 
+        try {
+
+            String accountquery = "INSERT INTO [dbo].[Regions]\n"
+                    + "           ([Region_Name]\n"
+                    + "           ,[County_ID])\n"
+                    + "     VALUES\n"
+                    + "           (?,?);";
+            PreparedStatement statement = conn.prepareStatement(accountquery);
+
+            statement.setString(1, region);
+            statement.setInt(2, locationID);
+            
+            int regionSuccess = statement.executeUpdate();
+            
+            Statement regionIdStatement = conn.createStatement();
+            
+            ResultSet rs =  regionIdStatement.executeQuery("SELECT [Region_ID] FROM [dbo].[Regions] WHERE Region_Name = '" +region +"';");
+            rs.next();
+            int regionId = rs.getInt("Region_ID");
+            rs.close();
+            
+            
+            
+            ResultSet farmerRs = regionIdStatement.executeQuery("SELECT [Farmer_ID]\n"
+                    + "  FROM [dbo].[Farmer]\n"
+                    + "  WHERE Account_ID = " + accountId + ";");
+            farmerRs.next();
+                    
+            int farmerId = farmerRs.getInt("Farmer_ID");
+            farmerRs.close();
+            
+                     
+            
+            String insertQuery = "INSERT INTO [dbo].[Products]\n"
+                    + "           ([Product_Name]\n"
+                    + "           ,[Product_Description]\n"
+                    + "           ,[Measurement_ID]\n"
+                    + "           ,[Product_Price]\n"
+                    + "           ,[Category_ID]\n"
+                    + "           ,[Region_ID]\n"
+                    + "           ,[Address]\n"
+                    + "           ,[Number]\n"
+                    + "           ,[Zip_Code]\n"
+                    + "           ,[Quantity])\n"
+                    + "     VALUES\n"
+                    + "           (?,?,? ,? ,? ,? ,?,? ,? ,?);";
+
+            PreparedStatement insertProductStatement = conn.prepareStatement(insertQuery);
+            insertProductStatement.setString(1, name);
+            insertProductStatement.setString(2, description);
+            insertProductStatement.setInt(3, 1);
+            insertProductStatement.setString(4, price);
+            insertProductStatement.setInt(5, categoryID);
+            insertProductStatement.setInt(6, regionId);
+            insertProductStatement.setString(7, address);
+            insertProductStatement.setString(8, number);
+            insertProductStatement.setString(9, zipcode);
+            insertProductStatement.setInt(10, Integer.parseInt(quantity));
+            
+            int productSuccess = insertProductStatement.executeUpdate();
+            
+            ResultSet productRs = regionIdStatement.executeQuery("SELECT [Product_ID]\n"
+                    + "  FROM [dbo].[Products]\n"
+                    + "  WHERE Product_Name = '" + name + "' AND Product_Price = '" + price + "';");
+            productRs.next();
+            int productId = productRs.getInt("Product_ID");
+            productRs.close();
+            
+            
+            
+            
+            
+            String farmerProductquery = "INSERT INTO [dbo].[Farmer_Products]\n"
+                    + "           ([Farmer_ID]\n"
+                    + "           ,[Product_ID])\n"
+                    + "     VALUES\n"
+                    + "           (?,?);";
+            PreparedStatement farmerProductStatement = conn.prepareStatement(farmerProductquery);
+
+            farmerProductStatement.setInt(1, farmerId);
+            farmerProductStatement.setInt(2, productId);
+            
+            int farmerProductSuccess = farmerProductStatement.executeUpdate();
+            
+            
+            if (regionSuccess == 1 && productSuccess == 1 && farmerProductSuccess == 1) {
+                return 1;
+            }else 
+            {
+                return 0;
+            }
+            
+        } catch (Exception e) {
+
+            e.printStackTrace();
+
+        }
+        return 0;
+    }
+}
+       
