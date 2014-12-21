@@ -1,22 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-
 package Farm.Deals;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
+import android.widget.Toast;
 
-/**
- *
- * @author user
- */
 public class SignUpScreen extends Activity implements DBConnectionListener, OnClickListener{
     private Dao dao;
     
@@ -42,37 +33,51 @@ public class SignUpScreen extends Activity implements DBConnectionListener, OnCl
          if(arg0.getId() == R.id.submitButton){
 		
      
-                 EditText nameField = (EditText)findViewById(R.id.nameField);
+             EditText nameField = (EditText)findViewById(R.id.nameField);
              String name = nameField.getText().toString();
              
              EditText surnameField = (EditText)findViewById(R.id.surnameField);
              String surname = surnameField.getText().toString();
              
-                EditText RCField = (EditText)findViewById(R.id.RCField);
+             EditText RCField = (EditText)findViewById(R.id.RCField);
              String RC = RCField.getText().toString();
              
-                EditText phoneField = (EditText)findViewById(R.id.phoneField);
+             EditText phoneField = (EditText)findViewById(R.id.phoneField);
              String phone = phoneField.getText().toString();
              
              EditText DOBField = (EditText)findViewById(R.id.DOBField);
              String DOB = DOBField.getText().toString();
              
-              EditText addressField = (EditText)findViewById(R.id.addressField);
+             EditText addressField = (EditText)findViewById(R.id.addressField);
              String address = addressField.getText().toString();
              
-              EditText emailField = (EditText)findViewById(R.id.emailField);
+             EditText emailField = (EditText)findViewById(R.id.emailField);
              String email = emailField.getText().toString();
              
              EditText passwordField = (EditText)findViewById(R.id.passwordField);
              String password = passwordField.getText().toString();
              
-              EditText passwordConfirmField = (EditText)findViewById(R.id.passwordConfirmField);
+             EditText passwordConfirmField = (EditText)findViewById(R.id.passwordConfirmField);
              String passwordConfirm = passwordConfirmField.getText().toString();
              
-              String[][] result = dao.signup(name, surname, RC, phone, DOB, address, email, password, passwordConfirm); }
-   Intent intent = new Intent(this, LoginScreen.class);
+             if ("".equals(name) || "".equals(surname) || "".equals(RC) || "".equals(phone) || "".equals(DOB) || "".equals(address) || "".equals(email) || "".equals(password) || "".equals(passwordConfirm)) {
+                 Toast.makeText(SignUpScreen.this,
+                         "Παρακαλώ συμπηρώστε όλα τα πεδία!", Toast.LENGTH_LONG).show();
+             } else {
+                 int result = dao.signup(name, surname, RC, phone, DOB, address, email, password, passwordConfirm);
+                 if (result == 1) {
+                     Intent intent = new Intent(this, LoginScreen.class);
+                     startActivity(intent);
+                     finish();
 
-  startActivity(intent);
+                 } else {
+                     Toast.makeText(SignUpScreen.this,
+                             "Η εγγραφή ήταν ανεπιτυχής, παρακαλώ προσπαθήστε ξανά!", Toast.LENGTH_LONG).show();
+                 }
+             }
+
+         }
+             
     }
 
    @Override
@@ -124,4 +129,3 @@ public class SignUpScreen extends Activity implements DBConnectionListener, OnCl
 		// onConnectionStatusInfo()
 
 	}}
-        
