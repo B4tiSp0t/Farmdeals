@@ -356,4 +356,33 @@ public class Dao {
 
         }
     }
+    void deleteProduct(int productId) {
+        if (conn == null) {
+
+            throw new InstantiationError(
+                    "call Dao.connect(...) before calling Dao operations");
+
+        }
+
+        try {
+            
+            String farmerProductsQuery = "DELETE FROM [dbo].[Farmer_Products]\n" +
+                "      WHERE Product_ID = ? ;";
+            PreparedStatement statement = conn.prepareStatement(farmerProductsQuery);
+            statement.setInt(1, productId);
+            statement.executeUpdate();
+                        
+            String productquery = "DELETE FROM [dbo].[Products]\n" +
+                        "      WHERE Product_ID = ?;"; 
+            
+            PreparedStatement productStatement = conn.prepareStatement(productquery);
+            productStatement.setInt(1, productId);
+            productStatement.executeUpdate();
+                        
+        } catch (Exception e) {
+
+            e.printStackTrace();
+
+        }
+    }
 }
