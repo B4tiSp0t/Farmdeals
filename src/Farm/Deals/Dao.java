@@ -349,13 +349,13 @@ public class Dao {
         }
 
         try {
-            String query = "SELECT COUNT ([Product_ID]) AS 'ROWCOUNT'\n"
+            String query = "SELECT COUNT (Products.Product_ID) AS 'ROWCOUNT'\n"
                     + "FROM [Products]\n"
                     + "  JOIN Farmer_Products\n"
                     + "  ON Farmer_Products.Product_ID=Products.Product_ID\n"
                     + "  JOIN Farmer\n"
                     + "  ON Farmer.Farmer_ID=Farmer_Products.Farmer_ID\n"
-                    + "  WHERE Farmer.Farmer_ID= " + farmerID;
+                    + "  WHERE Farmer.Farmer_ID= " + farmerID + ";";
 
             
 
@@ -367,32 +367,32 @@ public class Dao {
 
             resultSetForCountingProducts.close();
 
-            String resultsQuery = "SELECT [Product_Name]\n"
-                    + "      ,[Product_Description]\n"
+            String resultsQuery = "SELECT Products.[Product_ID] \n" 
+                    + "      ,[Product_Name]\n"
                     + "      ,[Product_Price]\n"
-                    + "      ,[Address]\n"
-                    + "      ,[Number]\n"
-                    + "      ,[Zip_Code]\n"
                     + "      ,[Quantity]\n"
+                    + "      ,Counties.County_Name \n"
                     + "  FROM [Products]\n"
                     + "  JOIN Farmer_Products\n"
                     + "  ON Farmer_Products.Product_ID=Products.Product_ID\n"
+                    + "  JOIN [Regions]\n"
+                    + "  ON Regions.Region_ID=Products.Region_ID\n"
+                    + "  JOIN [Counties]\n"
+                    + "  ON Counties.County_ID=Regions.County_ID\n"
                     + "  JOIN Farmer\n"
-                    + "  ON Farmer.Farmer_ID=Farmer_Products.Farmer_ID\n"
+                    + "  ON Farmer.Farmer_ID = Farmer_Products.Farmer_ID\n"
                     + "  WHERE Farmer.Farmer_ID=" + farmerID;
 
             ResultSet rs = statement.executeQuery(resultsQuery);
 
-            String[][] resultArray = new String[numberOfProducts][7];
+            String[][] resultArray = new String[numberOfProducts][5];
             rs.next();
             for (int i = 0; i < numberOfProducts; i++) {
-                resultArray[i][0] = rs.getString("Product_Name");
-                resultArray[i][1] = rs.getString("Product_Description");
-                resultArray[i][2] = rs.getString("Address");
-                resultArray[i][3] = Integer.toString(rs.getInt("Product_Price"));
-                resultArray[i][4] = Integer.toString(rs.getInt("Number"));
-                resultArray[i][5] = Integer.toString(rs.getInt("Zip_Code"));
-                resultArray[i][6] = Integer.toString(rs.getInt("Quantity"));
+                resultArray[i][0] = Integer.toString(rs.getInt("Product_ID"));
+                resultArray[i][1] = rs.getString("Product_Name");
+                resultArray[i][2] = rs.getString("Product_Price");
+                resultArray[i][3] = Integer.toString(rs.getInt("Quantity"));
+                resultArray[i][4] = rs.getString("County_Name");
                 rs.next();
             }
 
