@@ -277,32 +277,72 @@ public class Dao {
         return null;    
         }
         
-        public  String[][] signup(String name,String surname,String RC,String phone,String DOB,String address,String email,String password,String passwordConfirm){
-       if (conn == null) {
+        public int signup(String name, String surname, String RC, String phone, String DOB, String address, String email, String password, String passwordConfirm) {
+        if (conn == null) {
 
-			throw new InstantiationError(
-					"call Dao.connect(...) before calling Dao operations");
+            throw new InstantiationError(
+                    "call Dao.connect(...) before calling Dao operations");
 
-		}
+        }
 
-	try { 
-            String accountquery= "INSERT INTO [dbo].[Accounts]([Email],[Password]) VALUES(email,password);";
-                Statement statement = conn.createStatement();
-                 ResultSet resultSetForInsertData = statement.executeQuery(accountquery);
-                 
-                 resultSetForInsertData.next();
-           String farmerquery= "INSERT INTO [dbo].[Farmer] ([Farmer_Name],[Farmer_Surname],[Farmer_DOB],[Farmer_Address],[Farmer_Phone],[Farmer_RC]) VALUES(name,surname,DOB,Address,phone,RC);";
-       
-          	
-                 
-                  resultSetForInsertData.close();
-                  ResultSet rs = statement.executeQuery(farmerquery);
-                   rs.close();
-             statement.close(); 
+        try {
+            Date dob = Date.valueOf(DOB);
+            String accountquery = "INSERT INTO [dbo].[Accounts]([Email],[Password]) VALUES(?,?);";
+            PreparedStatement statement = conn.prepareStatement(accountquery);
+            
+            statement.setString(1, email);
+            statement.setString(2, password);
+            
+            int accountSuccess = statement.executeUpdate();
+            
+            
+            String query = "SELECT  [Account_ID]\n" +
+                            "  FROM [projectdb].[dbo].[Accounts]" +
+                    " WHERE Email = '" + email + "' AND Password = '" + password + "';";
+      
+            Statement getAccountIDStatement = conn.createStatement();
+            ResultSet resultSet = getAccountIDStatement.executeQuery(query);
+            
+            resultSet.next();
+            int accountId = resultSet.getInt("Account_ID");
+            resultSet.close();
+            
+            
+            
+            String insertQuery = "INSERT INTO [dbo].[Farmer]\n"
+                    + "           ([Farmer_Name]\n"
+                    + "           ,[Farmer_Surname]\n"
+                    + "           ,[Farmer_DOB]\n"
+                    + "           ,[Farmer_Address]\n"
+                    + "           ,[Farmer_Phone]\n"
+                    + "           ,[Farmer_RC]\n"
+                    + "           ,[Account_ID])\n"
+                    + "     VALUES\n"
+                    + "           (?,?,?,?,?,?,?);";
+
+            PreparedStatement insertFarmerDetails = conn.prepareStatement(insertQuery);
+            insertFarmerDetails.setString(1, name);
+            insertFarmerDetails.setString(2, surname);
+            insertFarmerDetails.setDate(3, dob);
+            insertFarmerDetails.setString(4, address);
+            insertFarmerDetails.setString(5, phone);
+            insertFarmerDetails.setString(6, RC);
+            insertFarmerDetails.setInt(7, accountId);
+            
+            int farmerSuccess = insertFarmerDetails.executeUpdate();
+            
+            if (farmerSuccess == 1 && accountSuccess == 1) {
+                return 1;
+            }else 
+            {
+                return 0;
+            }
+            
         } catch (Exception e) {
 
-			e.printStackTrace();
+            e.printStackTrace();
 
-		}
-        return null;    
-        }}
+        }
+        return 0;
+    }
+}
