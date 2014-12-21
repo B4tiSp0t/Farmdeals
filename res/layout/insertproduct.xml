@@ -1,0 +1,150 @@
+
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout
+	android:id="@+id/widget0"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	xmlns:android="http://schemas.android.com/apk/res/android">
+<TextView
+	android:id="@+id/Title"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="&#931;&#932;&#927;&#921;&#935;&#917;&#921;&#913; &#928;&#929;&#927;&#938;&#925;&#932;&#927;&#931;"
+	android:textSize="18sp"
+	android:textStyle="bold"
+	android:layout_x="37dp"
+	android:layout_y="-1dp" />
+<TextView
+	android:id="@+id/newname"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="&#908;&#957;&#959;&#956;&#945; &#928;&#961;&#959;&#970;&#972;&#957;&#964;&#959;&#962;"
+	android:layout_x="18dp"
+	android:layout_y="32dp" />
+<TextView
+	android:id="@+id/newdescription"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="&#928;&#949;&#961;&#953;&#947;&#961;&#945;&#966;&#942; &#928;&#961;&#959;&#970;&#972;&#957;&#964;&#959;&#962;"
+	android:layout_x="-1dp"
+	android:layout_y="68dp" />
+<TextView
+	android:id="@+id/newquantity"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="&#928;&#959;&#963;&#972;&#964;&#951;&#964;&#945;"
+	android:layout_x="76dp"
+	android:layout_y="144dp" />
+<TextView
+	android:id="@+id/newprice"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="&#932;&#953;&#956;&#942;"
+	android:layout_x="104dp"
+	android:layout_y="189dp" />
+<TextView
+	android:id="@+id/newregion"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="&#928;&#949;&#961;&#953;&#959;&#967;&#942;"
+	android:layout_x="82dp"
+	android:layout_y="271dp" />
+<TextView
+	android:id="@+id/newaddress"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="&#916;&#953;&#949;&#973;&#952;&#965;&#957;&#963;&#951;"
+	android:layout_x="64dp"
+	android:layout_y="317dp" />
+<TextView
+	android:id="@+id/newnumber"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="&#913;&#961;&#953;&#952;&#956;&#972;&#962;"
+	android:layout_x="79dp"
+	android:layout_y="366dp" />
+<EditText
+	android:id="@+id/newname1"
+	android:layout_width="80dp"
+	android:layout_height="wrap_content"
+	android:textSize="18sp"
+	android:layout_x="160dp"
+	android:layout_y="19dp" />
+<EditText
+	android:id="@+id/newdescription1"
+	android:layout_width="83dp"
+	android:layout_height="wrap_content"
+	android:textSize="18sp"
+	android:layout_x="160dp"
+	android:layout_y="58dp" />
+<EditText
+	android:id="@+id/newquantity1"
+	android:layout_width="86dp"
+	android:layout_height="wrap_content"
+	android:textSize="18sp"
+	android:layout_x="155dp"
+	android:layout_y="133dp" />
+<EditText
+	android:id="@+id/newprice1"
+	android:layout_width="86dp"
+	android:layout_height="wrap_content"
+	android:textSize="18sp"
+	android:layout_x="155dp"
+	android:layout_y="177dp" />
+<EditText
+	android:id="@+id/newregion1"
+	android:layout_width="86dp"
+	android:layout_height="wrap_content"
+	android:textSize="18sp"
+	android:layout_x="161dp"
+	android:layout_y="260dp" />
+<EditText
+	android:id="@+id/newaddress1"
+	android:layout_width="86dp"
+	android:layout_height="wrap_content"
+	android:textSize="18sp"
+	android:layout_x="162dp"
+	android:layout_y="307dp" />
+<EditText
+	android:id="@+id/newnumber1"
+	android:layout_width="86dp"
+	android:layout_height="wrap_content"
+	android:textSize="18sp"
+	android:layout_x="163dp"
+	android:layout_y="355dp" />
+<EditText
+	android:id="@+id/newps1"
+	android:layout_width="86dp"
+	android:layout_height="wrap_content"
+	android:textSize="18sp"
+	android:layout_x="162dp"
+	android:layout_y="400dp" />
+<TextView
+	android:id="@+id/newps"
+	android:layout_width="wrap_content"
+	android:layout_height="18dp"
+	android:text="&#932;.&#922;."
+	android:layout_x="103dp"
+	android:layout_y="410dp" />
+<Spinner
+	android:id="@+id/newcategoryspinner"
+	android:layout_width="76dp"
+	android:layout_height="29dp"
+	android:layout_x="163dp"
+	android:layout_y="101dp" />
+<Spinner
+	android:id="@+id/newcountyspinner"
+	android:layout_width="76dp"
+	android:layout_height="31dp"
+	android:layout_x="160dp"
+	android:layout_y="224dp" />
+
+<Button
+        android:id="@+id/newProductButton"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+        android:layout_x="90dp"
+	android:layout_y="440dp"
+	android:text="Προσθήκη" 
+    />
+</AbsoluteLayout>
