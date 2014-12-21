@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<AbsoluteLayout
 	android:id="@+id/widget812"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
@@ -8,7 +8,7 @@
 <ScrollView
 	android:id="@+id/farmerlayout"
 	android:layout_width="match_parent"
-	android:layout_height="match_parent"
+	android:layout_height="380dp"
 	android:layout_marginTop="5dip">
 <HorizontalScrollView 
         android:id="@+id/farmerhorizontalView" 
@@ -34,64 +34,36 @@
         android:padding="5dp"
 	android:text="Όνομα" />
 <TextView
-	android:id="@+id/farmerproductDescription"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
-        android:padding="5dp"
-	android:text="Περιγραφή" />
-<TextView
-	android:id="@+id/farmerquantity"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
-        android:padding="5dp"
-	android:text="Ποσότητα" />
-
-<TextView
-	android:id="@+id/farmermeasurementType"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
-        android:padding="5dp"
-	android:text="Μονάδα Μέτρησης" />
-<TextView
 	android:id="@+id/farmerproductPrice"
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
         android:padding="5dp"
 	android:text="Τιμή" />
 <TextView
+	android:id="@+id/farmerquantity"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+        android:padding="5dp"
+	android:text="Ποσότητα" />
+<TextView
 	android:id="@+id/farmercounty"
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
         android:padding="5dp"
 	android:text="Νομός" />
-<TextView
-	android:id="@+id/farmerregion"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
-        android:padding="5dp"
-	android:text="Περιοχή" />
-<TextView
-	android:id="@+id/farmeraddress"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
-        android:padding="5dp"
-	android:text="Διεύθυνση" />
-<TextView
-	android:id="@+id/farmeraddressNumber"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
-        android:padding="5dp"
-	android:text="Αριθμός" />
-<TextView
-	android:id="@+id/farmerpostalCode"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
-        android:padding="5dp"
-	android:text="Τ.Κ." />
+
 
 
 </TableRow>
 </TableLayout>
 </HorizontalScrollView>
 </ScrollView>
-</LinearLayout>
+<Button
+        android:id="@+id/farmerAddProductButton"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+        android:layout_x="90dp"
+	android:layout_y="410dp"
+	android:text="Προσθήκη Προϊόντος" 
+    />
+</AbsoluteLayout>
