@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout
+	android:id="@+id/Intro"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+        android:background="@drawable/fences">
+    <TextView
+        android:id="@+id/intromsg"
+        android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:textSize="20sp"
+        android:textColor="#00FF00"
+	android:textStyle="italic"
+        android:gravity="center"
+	android:layout_x="50dp"
+	android:layout_y="500dp"
+	android:text="Παρακαλώ Περιμένετε...."/>
+    <Button
+	android:id="@+id/next_button"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_x="120dp"
+	android:layout_y="300dp"
+	android:text="Επόμενο"/>
+    <TextView
+	android:id="@+id/intromsg_copy"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="&#922;&#945;&#955;&#974;&#962; &#942;&#961;&#952;&#945;&#964;&#949; &#963;&#964;&#951;&#957; &#949;&#966;&#945;&#961;&#956;&#959;&#947;&#942; &#945;&#957;&#945;&#950;&#942;&#964;&#951;&#963;&#951;&#962; &#945;&#947;&#961;&#959;&#964;&#953;&#954;&#974;&#957; &#960;&#961;&#959;&#953;&#972;&#957;&#964;&#969;&#957; FarmDeals"
+	android:textSize="23dp"
+	android:typeface="sans"
+	android:textStyle="bold"
+	android:textColor="#000000"
+	android:gravity="center"
+	android:layout_x="0dp"
+	android:layout_y="90dp" />
+
+</AbsoluteLayout>

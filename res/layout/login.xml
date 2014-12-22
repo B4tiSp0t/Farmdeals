@@ -1,14 +1,65 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <AbsoluteLayout
- android:id="@+id/widget40"
+	android:id="@+id/widget54"
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent"
 	xmlns:android="http://schemas.android.com/apk/res/android"
-        android:background="@drawable/farm"
->
+        android:background="@drawable/farm">
+<ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/logo"
+        android:layout_x="0dp"
+	android:layout_y="0dp" />
 <TextView
-  android:layout_width="match_parent"
-  android:layout_height="match_parent"
-  android:text="ΠΑΡΑΚΑΛΩ ΣΥΝΔΕΘΕΙΤΕ"
-/>
+	android:id="@+id/email"
+	android:layout_width="51dp"
+	android:layout_height="23dp"
+	android:layout_marginLeft="60px"
+	android:text="E-mail:"
+	android:textColor="#ff000000"
+	android:layout_x="83dp"
+	android:layout_y="145dp" />
+<EditText
+	android:id="@+id/text_password"
+	android:layout_width="150px"
+	android:layout_height="wrap_content"
+        android:password="true"
+	android:textSize="10sp"
+	android:layout_x="81dp"
+	android:layout_y="247dp" />
+<TextView
+	android:id="@+id/password"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:layout_marginLeft="60px"
+	android:text="Password:"
+	android:textColor="#ff000000"
+	android:layout_x="83dp"
+	android:layout_y="223dp" />
+<EditText
+	android:id="@+id/text_email"
+	android:layout_width="150px"
+	android:layout_height="wrap_content"
+	android:hint="π.χ george32@hotmail.com"
+	android:textSize="10sp"
+	android:layout_x="83dp"
+	android:layout_y="175dp" />
+<Button
+	android:id="@+id/farmerProductsScreen"
+	android:layout_width="104dp"
+	android:layout_height="wrap_content"
+	android:layout_marginTop="30px"
+	android:text="Είσοδος"
+	android:layout_x="104dp"
+	android:layout_y="344dp" />
+<Button
+	android:id="@+id/signUpScreen"
+	android:layout_width="104dp"
+	android:layout_height="wrap_content"
+	android:text="Εγγραφή"
+	android:layout_x="104dp"
+	android:layout_y="400dp" />
 </AbsoluteLayout>

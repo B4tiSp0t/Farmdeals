@@ -4,17 +4,25 @@
       android:versionCode="1"
       android:versionName="1.0">
     <application android:label="@string/app_name" android:icon="@drawable/icon" android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
-        <activity android:name="Main"
+        <activity android:name="Intro"
                   android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:label="ΣΥΝΔΕΣΗ" android:name="LoginScreen"> </activity>
-        <activity android:label="Επεξεργασία Προϊόντος" android:name="EditProductActivity"> </activity>
-        <activity android:label="Προϊόντα" android:name="FarmerProductsActivity"> </activity>
+        <activity android:label="MAIN" android:name="Main"> </activity>
         <activity android:label="Αποτελέσματα αναζήτησης" android:name="SearchResultsActivity"> </activity>
+        <activity android:label="Products Information" android:name="ProductsInfo"> </activity>
+        <activity android:label="Sign Up Screen" android:name="SignUpScreen"> </activity>
+        <activity android:label="ΣΥΝΔΕΣΗ" android:name="LoginScreen"> </activity>
+        <activity android:label="Προϊόντα" android:name="FarmerProductsActivity"> </activity>
+        <activity android:label="FarmerProducts Screen" android:name="FarmerProductsScreen">  </activity>
+        <activity android:label="Login Failed Message Screen" android:name="Insert_Product"> </activity>
+        <activity android:label="Επεξεργασία Προϊόντος" android:name="EditProductActivity"> </activity>
+        <activity android:label="Farmer Product Information" android:name="productDetailsActivity"> </activity>
+        <activity android:label="Login Failed Message Screen" android:name="LoginFailedMessageScreen"> </activity>
+        
     </application>
     <uses-permission android:name="android.permission.INTERNET" />
 </manifest>

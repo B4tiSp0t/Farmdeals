@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout
+	android:id="@+id/absLayout"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+        android:background="@drawable/farm2"
+	xmlns:android="http://schemas.android.com/apk/res/android">
+<LinearLayout
+	android:id="@+id/linLayout"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:orientation="vertical"
+	android:layout_x="3dp"
+	android:layout_y="0dp">
+<TextView
+	android:id="@+id/Title"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="Συμπληρώστε τα στοιχεία του προϊόντος"
+	android:textSize="18sp"
+	android:textStyle="bold|italic"
+	android:textColor="#000000" 
+        android:paddingBottom="10dp"/>
+<TextView
+	android:id="@+id/newname"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text=" Όνομα Προϊόντος"
+	android:textStyle="bold"
+	android:textColor="#000000" />
+<EditText
+	android:id="@+id/newname1"
+	android:layout_width="192dp"
+	android:layout_height="30dp"
+	android:textSize="9dp"
+	android:textStyle="bold"
+	android:textColor="#000000" />
+<TextView
+	android:id="@+id/newdescription"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text=" Περιγραφή προϊόντος"
+	android:textStyle="bold"
+	android:textColor="#000000" />
+<EditText
+	android:id="@+id/newdescription1"
+	android:layout_width="192dp"
+	android:layout_height="30dp"
+	android:textSize="9dp"
+	android:textStyle="bold"
+	android:textColor="#000000" />
+<Spinner
+	android:id="@+id/newcategoryspinner"
+        android:gravity="center"
+	android:layout_width="192dp"
+	android:layout_height="30dp"
+        android:textSize="6sp"
+        android:padding="0px"
+        />
+<TextView
+	android:id="@+id/newquantity"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text=" Ποσότητα"
+	android:textStyle="bold"
+	android:textColor="#000000" />
+<EditText
+	android:id="@+id/newquantity1"
+	android:layout_width="192dp"
+	android:layout_height="30dp"
+	android:textSize="9dp"
+	android:textStyle="bold"
+	android:textColor="#000000" />
+<TextView
+	android:id="@+id/newprice"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text=" Τιμή"
+	android:textStyle="bold"
+	android:textColor="#000000" />
+<EditText
+	android:id="@+id/newprice1"
+	android:layout_width="192dp"
+	android:layout_height="30dp"
+	android:textSize="9dp"
+	android:textStyle="bold"
+	android:textColor="#000000" />
+<Spinner
+	android:id="@+id/newcountyspinner"
+	android:layout_width="192dp"
+	android:layout_height="30dp"
+        android:textSize="6sp"
+        android:padding="0px"
+        android:gravity="center"/>
+<TextView
+	android:id="@+id/newregion"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text=" Περιοχή"
+	android:textStyle="bold"
+	android:textColor="#000000" />
+<EditText
+	android:id="@+id/newregion1"
+	android:layout_width="192dp"
+	android:layout_height="30dp"
+	android:textSize="9dp"
+	android:textStyle="bold"
+	android:textColor="#000000" />
+<TextView
+	android:id="@+id/newaddress"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text=" Διεύθυνση"
+	android:textStyle="bold"
+	android:textColor="#000000" />
+<EditText
+	android:id="@+id/newaddress1"
+	android:layout_width="192dp"
+	android:layout_height="30dp"
+	android:textSize="9dp"
+	android:textStyle="bold"
+	android:textColor="#000000" />
+<TextView
+	android:id="@+id/newnumber"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text=" Αριθμός"
+	android:textStyle="bold"
+	android:textColor="#000000" />
+<EditText
+	android:id="@+id/newnumber1"
+	android:layout_width="192dp"
+	android:layout_height="30dp"
+	android:textSize="9dp"
+	android:textStyle="bold"
+	android:textColor="#000000" />
+<TextView
+	android:id="@+id/newps"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text=" Ταχυδρομικός Κώδικας"
+	android:textStyle="bold"
+	android:textColor="#000000" />
+<EditText
+	android:id="@+id/newps1"
+	android:layout_width="192dp"
+	android:layout_height="30dp"
+	android:textSize="9dp"
+	android:textStyle="bold"
+	android:textColor="#000000" />
+<TextView
+	android:id="@+id/info"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="Όλα τα στοιχεία είναι υποχρεωτικό να συμπληρωθούν"
+	android:textSize="12sp"
+	android:textColor="#000000" />
+</LinearLayout>
+<Button
+	android:id="@+id/newProductButton"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="Προσθήκη"
+	android:textStyle="bold"
+	android:textColor="#000000"
+	android:layout_x="207dp"
+	android:layout_y="457dp" />
+</AbsoluteLayout>
